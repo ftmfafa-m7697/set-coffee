@@ -1,7 +1,9 @@
 "use client";
+
 import React, {useEffect, useState} from "react";
 import {CiHeart} from "react-icons/ci";
 import {showSwal} from "@/utils/helpers";
+import Link from "next/link";
 
 
 function AddToWishlist({productID}) {
@@ -9,7 +11,7 @@ function AddToWishlist({productID}) {
     const [user, setUser] = useState(null)
 
 
-    useEffect(() => {
+    useEffect(async () => {
 
         const authUser = async () => {
 
@@ -21,7 +23,7 @@ function AddToWishlist({productID}) {
             }
         }
 
-         authUser()
+        await authUser()
 
     }, []);
 
@@ -41,12 +43,12 @@ function AddToWishlist({productID}) {
         const res = await fetch("/api/wishlist", {
             method: "POST",
             headers: {
-                " Content-Types": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(wish),
         })
 
-        if (res.status === 200) {
+        if (res.status === 201) {
             showSwal("به علاقه مندی ها افزوده شد", "success", "فهمیدم")
         }
 
@@ -55,7 +57,8 @@ function AddToWishlist({productID}) {
     return (
         <div onClick={addToWishlist}>
             <CiHeart/>
-            <a href="/">افزودن به علاقه مندی ها</a>
+            <Link href="/wishlist">افزودن به علاقه مندی ها</Link>
+            {/*<a href="/">افزودن به علاقه مندی ها</a>*/}
         </div>
     );
 }

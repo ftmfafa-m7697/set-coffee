@@ -2,6 +2,7 @@ import './globals.css'
 import {Inter} from 'next/font/google'
 import AOSInit from "@/utils/aos";
 import ScrollTOTop from "@/utils/ScrollToTop"
+import connectToDb from "@/configs/db";
 
 
 const inter = Inter({subsets: ['latin']})
@@ -14,7 +15,9 @@ export const metadata = {
     },
 }
 
-export default function RootLayout({children}) {
+export default  async function RootLayout({children}) {
+    await connectToDb()
+
     return (
         <html lang="fa">
 

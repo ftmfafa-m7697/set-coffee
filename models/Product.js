@@ -1,30 +1,29 @@
-const mongoose = require('mongoose')
-require('models/Comment')
+const mongoose = require("mongoose");
+require("./Comment");
 
 const schema = new mongoose.Schema({
-
     name: {
         type: String,
-        required: true
+        required: true,
     },
     price: {
         type: Number,
-        required: true
+        required: true,
     },
     shortDescription: {
         type: String,
-        required: true
+        required: true,
     },
     longDescription: {
         type: String,
-        required: true
+        required: true,
     },
     weight: {
         type: Number,
-        required: true
+        required: true,
     },
     suitableFor: {
-        type: Boolean,
+        type: String,
         required: true,
     },
     smell: {
@@ -35,32 +34,20 @@ const schema = new mongoose.Schema({
         type: Number,
         default: 5,
     },
-    date: {
-        type: Date,
-        required: true,
-        default: () => Date.now(),
-        Immutable: false, //قابل تغییر نباشد
-    },
     tags: {
-        type: [String], //چندتا تگ وجود دارد
-
+        type: [String],
         required: true,
     },
-    comments: { //نام پاپیولیت
-        type: [{ //ارتباط یک به چند
-            type: mongoose.Types.ObjectId,
-            ref: 'comment',
-        }],
-    }
+    comments: {
+        type: [
+            {
+                type: mongoose.Types.ObjectId,
+                ref: "Comment",
+            },
+        ],
+    },
+});
 
+const model = mongoose.models.Product || mongoose.model("Product", schema);
 
-})
-
-
-const model = mongoose.models.product || mongoose.model("product", schema)
-
-
-module.exports = model;
-
-
-
+export default model;

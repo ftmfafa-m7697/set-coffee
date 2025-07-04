@@ -1,7 +1,5 @@
 import {compare, hash} from "bcryptjs";
 import {sign, verify} from "jsonwebtoken"
-// import {cookies} from "next/headers";
-
 
 const hashPassword = async (password) => {
 
@@ -26,11 +24,11 @@ const generateAccessToken = async (data) => {
 }
 
 
-const verifyAccessToken = async (token) => {
+const verifyAccessToken =  (token) => {
 
 
     try {
-        const tokenPayload = await verify(token, process.env.AccessTokenPrivateKey)
+        const tokenPayload =  verify(token, process.env.AccessTokenPrivateKey)
         return tokenPayload
     } catch (err) {
         console.log("verify access token error", err)
@@ -61,33 +59,6 @@ const validatePassword = (password) => {
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g;
     return pattern.test(password);
 };
-
-
-// export const authUser = async () => {
-//
-//     const token = cookies().get("token")?.value;
-//
-//     let user = null;
-//
-//     if (token) {
-//         try {
-//             const tokenPayload = await verifyAccessToken(token);
-//             console.log('Payload:', tokenPayload);
-//
-//             if (tokenPayload) {
-//                 user = await UserModel.findOne({email: tokenPayload.email});
-//             }
-//         } catch (err) {
-//             console.error('Token validation failed:', err);
-//         }
-//     }
-//
-//
-//     return user;
-// }
-
-
-// create route checkAuth
 
 
 export {

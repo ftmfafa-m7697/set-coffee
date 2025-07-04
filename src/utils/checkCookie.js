@@ -1,6 +1,22 @@
+import connectToDB from "configs/db"
+import {cookies} from "next/headers";
+import userModel from "@/models/User";
+import {verifyAccessToken} from "@/utils/auth";
 
-export default async function checkCookie() {
-    const res = await fetch(`http://localhost:3000/api/auth/checkAuth`);
-    const data = await res.json();
-    return data;
-}
+export const authUser = async () => {
+
+    await connectToDB();
+    const cook = await cookies();
+    const token = cook.get("token");
+    let user = null;
+
+    if (token) {
+        const tokenPayload = verifyAccessToken(token.value);
+
+        if (tokenPayload) {
+            user = await userModel.findOne({email: tokenPayload.email});
+        }
+    }
+
+    return user
+};

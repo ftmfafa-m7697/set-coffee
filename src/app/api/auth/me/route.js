@@ -6,9 +6,9 @@ import UserModel from "/models/User";
 export async function GET() {
 
     await connectToDB();
-    const token = cookies().get("token");
-    let user = null;
+    const token = (await  cookies()).get("token");
 
+    let user = null;
 
 
     if (token) {
