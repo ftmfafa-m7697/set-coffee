@@ -1,11 +1,11 @@
-import connectToDB from "/configs/db";
+import connectToDb from "@/configs/db";
 import {verifyAccessToken} from "@/utils/auth";
 import {cookies} from "next/headers";
 import UserModel from "/models/User";
 
 export async function GET() {
 
-    await connectToDB();
+    await connectToDb();
     const token = (await  cookies()).get("token");
 
     let user = null;

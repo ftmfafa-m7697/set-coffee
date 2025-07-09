@@ -1,5 +1,5 @@
 import wishlistModel from "/models/Wishlist";
-import connectToDb from "/configs/db";
+import connectToDb from "@/configs/db";
 
 
 export async function POST(req) {
@@ -51,3 +51,5 @@ export async function GET() {
     }
 
 }
+
+

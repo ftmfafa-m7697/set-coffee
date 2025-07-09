@@ -1,9 +1,9 @@
-import connectToDB from "@/configs/db";
+import connectToDb from "@/configs/db";
 import ContactModel from "@/models/Contact";
 
 export async function POST(req) {
   try {
-    await connectToDB();
+    await connectToDb();
     const body = await req.json();
     const { name, email, phone, company, message } = body;
 

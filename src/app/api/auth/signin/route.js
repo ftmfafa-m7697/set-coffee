@@ -4,13 +4,13 @@ import {
     verifyPassword
 } from "@/utils/auth";
 import UserModel from "/models/User";
-import connectToDB from "/configs/db";
+import connectToDb from "@/configs/db";
 import {cookies} from "next/headers";
 
 
 export async function POST(req) {
 
-    await connectToDB();
+    await connectToDb();
 
     try {
         const body = await req.json();

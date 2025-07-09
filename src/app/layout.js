@@ -5,6 +5,8 @@ import ScrollTOTop from "@/utils/ScrollToTop"
 import connectToDb from "@/configs/db";
 
 
+
+
 const inter = Inter({subsets: ['latin']})
 
 export const metadata = {

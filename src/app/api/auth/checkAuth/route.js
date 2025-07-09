@@ -1,7 +1,7 @@
 import {cookies} from "next/headers";
 import {verifyAccessToken} from "@/utils/auth";
 import UserModel from "/models/User";
-import connectToDb from "/configs/db";
+import connectToDb from "@/configs/db";
 
 
 export async function GET() {

@@ -1,18 +1,20 @@
 "use client";
 
-
-import styles from "@/styles/login-register.module.css";
 import { useState } from "react";
+import styles from "@/styles/login-register.module.css";
 import { authTypes } from "@/utils/constants";
-
 import Login from "@/components/templates/login-register/Login";
 import Register from "@/components/templates/login-register/Register";
+
+
 
 const login_register = () => {
   const [authType, setAuthType] = useState(authTypes.LOGIN);
 
   const showRegisterForm = () => setAuthType(authTypes.REGISTER);
   const showLoginForm = () => setAuthType(authTypes.LOGIN);
+
+
 
   return (
     <div className={styles.login_register}>

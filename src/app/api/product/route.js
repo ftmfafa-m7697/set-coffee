@@ -1,4 +1,4 @@
-import connectToDb from "/configs/db";
+import connectToDb from "@/configs/db";
 import productModel from "/models/Product";
 
 export async function POST(req) {

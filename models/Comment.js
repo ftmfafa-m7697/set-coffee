@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require("/models/Product"); //مربوط به ref
+require("./Product"); //مربوط به ref
 
 const schema = new mongoose.Schema({
 
@@ -32,13 +32,13 @@ const schema = new mongoose.Schema({
     },
     productID: {
         type: mongoose.Types.ObjectId,
-        ref: 'product',
+        ref: 'Product',
     }
 
 })
 
 
-const model = mongoose.models.comment || mongoose.model("comment", schema)
+const model = mongoose.models.Comment || mongoose.model("Comment", schema)
 
 
 module.exports = model;

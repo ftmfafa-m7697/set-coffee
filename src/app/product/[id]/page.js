@@ -6,7 +6,7 @@ import Tabs from "@/components/templates/product/Tabs";
 import MoreProducts from "@/components/templates/product/MoreProducts";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/Navbar/Navbar";
-import connectToDb from "/configs/db";
+import connectToDb from "@/configs/db";
 import productModel from '/models/Product'
 import {authUser} from "@/utils/checkCookie";
 

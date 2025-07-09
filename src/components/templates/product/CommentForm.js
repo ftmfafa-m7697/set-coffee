@@ -5,7 +5,7 @@ import {showSwal} from "@/utils/helpers";
 
 const CommentForm = ({productID}) => {
 
-    console.log("productID", productID)
+    // console.log("productID", productID)
 
     const [body, setBody] = useState(null);
     const [userName, setUserName] = useState(null);

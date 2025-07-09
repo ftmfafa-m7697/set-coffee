@@ -1,4 +1,4 @@
-import connectToDb from "/configs/db";
+import connectToDb from "@/configs/db";
 import userModel from "/models/User"
 import {generateAccessToken, hashPassword} from "@/utils/auth";
 import {roles} from "@/utils/constants";
