@@ -18,5 +18,5 @@ export const authUser = async () => {
         }
     }
 
-    return user
+    return user;
 };

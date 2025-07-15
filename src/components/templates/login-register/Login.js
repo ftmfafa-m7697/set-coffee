@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import Sms from "./Sms";
@@ -45,9 +45,13 @@ const Login = ({showRegisterForm}) => {
 
 
         if (res.status === 200) {
-            showSwal("با موفقیت لاگین شدین",
-                "success",
-                "ورود به پنل کاربری");
+            swal({
+                title: "با موفقیت لاگین شدین",
+                icon: "success",
+                button: "ورود به پنل کاربری"
+            }).then(()=> {
+                location.replace("/p-user")
+            });
 
             setPassword("")
             setPhoneOrEmail("")

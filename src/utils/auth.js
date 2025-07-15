@@ -1,25 +1,25 @@
 import {compare, hash} from "bcryptjs";
 import {sign, verify} from "jsonwebtoken"
 
+
+
 const hashPassword = async (password) => {
 
     return await hash(password, 12);
 }
-//PHPSTORM WAY
+
+
 const verifyPassword = async (password, hashedPassword) => {
 
-    const isValid = await compare(password, hashedPassword)
-    return isValid;
+    return await compare(password, hashedPassword);
 }
 
 
 const generateAccessToken = async (data) => {
 
-    const token = await sign({...data}, process.env.AccessTokenPrivateKey, {
+    return await sign({...data}, process.env.AccessTokenPrivateKey, {
         expiresIn: "60d"
     })
-
-    return token
 
 }
 
@@ -28,8 +28,7 @@ const verifyAccessToken =  (token) => {
 
 
     try {
-        const tokenPayload =  verify(token, process.env.AccessTokenPrivateKey)
-        return tokenPayload
+        return verify(token, process.env.AccessTokenPrivateKey)
     } catch (err) {
         console.log("verify access token error", err)
     }
@@ -38,10 +37,9 @@ const verifyAccessToken =  (token) => {
 
 const generateRefreshToken = async (data) => {
 
-    const token = await sign({...data}, process.env.RefreshTokenPrivateKey, {
+    return await sign({...data}, process.env.RefreshTokenPrivateKey, {
         expiresIn: "15d"
     })
-    return token
 
 }
 const validateEmail = (email) => {
