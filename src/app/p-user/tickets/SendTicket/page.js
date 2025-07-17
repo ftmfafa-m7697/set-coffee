@@ -1,5 +1,5 @@
 import UserPanelLayout from "@/components/layouts/UserPanelLayout";
-import SendTicket from "@/components/templates/p-user/tickets/sendTicket";
+import SendTicket from "@/components/templates/p-user/tickets/SendTicket";
 
 
 const page = () => {

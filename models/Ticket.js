@@ -36,6 +36,20 @@ const schema = new mongoose.Schema(
         hasAnswer: {
             type: Boolean,
             default: false,
+            //نشان می‌دهد آیا به این تیکت پاسخی داده شده یا نه
+        },
+        isAnswer: {
+            type: Boolean,
+            default: false,
+            //مشخص می‌کند آیا این تیکت در واقع پاسخی به تیکت دیگر است یا نه
+        },
+        mainTicket: {
+            type: mongoose.Types.ObjectId,
+            ref: "Ticket",
+            //این فیلد، معرف شناسه تیکتی است که این تیکت پاسخ آن است، یعنی برای تعیین پاسخ‌های مدیریتی به کار می‌رود
+            //default: false,// بانوشتن این خط به ارور بر میخوردم
+            default: null,
+            //status: 500, message: {"MESSAGE":"ValidationError: mainTicket: Cast to ObjectId failed for value \"false\" (type boolean) at path \"mainTicket\" because of \"BSONError\""}
         },
     },
     {

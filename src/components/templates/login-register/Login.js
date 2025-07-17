@@ -4,9 +4,11 @@ import Link from "next/link";
 import Sms from "./Sms";
 import {showSwal} from "@/utils/helpers";
 import {validateEmail, validatePassword} from "@/utils/auth";
+import {useRouter} from "next/navigation";
 
 const Login = ({showRegisterForm}) => {
 
+    const router = useRouter();
     const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
     const [password, setPassword] = useState("");
     const [phoneOrEmail, setPhoneOrEmail] = useState("");
@@ -14,7 +16,6 @@ const Login = ({showRegisterForm}) => {
     const hideOtpForm = () => setIsLoginWithOtp(false);
 
     const loginWithPassword = async () => {
-
 
 
         if (!phoneOrEmail) {
@@ -49,8 +50,8 @@ const Login = ({showRegisterForm}) => {
                 title: "با موفقیت لاگین شدین",
                 icon: "success",
                 button: "ورود به پنل کاربری"
-            }).then(()=> {
-                location.replace("/p-user")
+            }).then(() => {
+                router.replace("/p-user")
             });
 
             setPassword("")

@@ -60,6 +60,10 @@ function SentTicket() {
             body: JSON.stringify(ticket)
         });
 
+        if (!res.ok) {
+            const errorText = await res.text();
+            console.log(`status: ${res.status},${errorText}`);
+        }
         if (res.status === 201) {
             swal({
                 title: "تیکت شما با موفقیت ثبت شد",
