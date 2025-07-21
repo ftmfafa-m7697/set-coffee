@@ -6,6 +6,7 @@ import connectToDB from "@/configs/db";
 import UserModel from "@/models/User";
 
 const page = async () => {
+
   await connectToDB();
   const users = await UserModel.find({}).lean();
 
