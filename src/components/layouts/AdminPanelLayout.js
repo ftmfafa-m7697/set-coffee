@@ -5,7 +5,7 @@ import Topbar from "@/components/modules/p-admin/Topbor";
 import {redirect} from "next/navigation";
 import {authUser} from "@/utils/checkCookie";
 
-const Layout = async ({children}) => {
+const AdminPanelLayout = async ({children}) => {
 
     const user = await authUser();
     if (user) {
@@ -31,4 +31,4 @@ const Layout = async ({children}) => {
     );
 };
 
-export default Layout;
+export default AdminPanelLayout;
