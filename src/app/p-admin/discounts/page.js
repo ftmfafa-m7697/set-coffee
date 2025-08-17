@@ -1,8 +1,8 @@
-import Table from "@/components/templates/p-admin/discounts/Table";
-import Layout from "@/components/layouts/AdminPanelLayout";
-import styles from "@/components/templates/p-admin/discounts/table.module.css";
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/models/Discount";
+import Layout from "@/components/layouts/AdminPanelLayout";
+import Table from "@/components/templates/p-admin/discounts/Table";
+import styles from "@/components/templates/p-admin/discounts/table.module.css";
 import AddDiscount from "@/components/templates/p-admin/discounts/AddDiscount";
 
 const Discounts = async () => {

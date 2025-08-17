@@ -1,7 +1,6 @@
 import {
-    generateAccessToken, generateRefreshToken,
-    validateEmail, validatePassword,
-    verifyPassword
+    generateAccessToken, generateRefreshToken, validateEmail,
+    validatePassword, verifyPassword
 } from "@/utils/auth";
 import UserModel from "/models/User";
 import connectToDb from "@/configs/db";

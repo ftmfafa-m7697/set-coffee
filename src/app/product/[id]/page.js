@@ -1,5 +1,4 @@
 import styles from "@/styles/product.module.css";
-import mongoose from "mongoose";
 import Gallery from "@/components/templates/product/Gallery";
 import Details from "@/components/templates/product/Details";
 import Tabs from "@/components/templates/product/Tabs";
@@ -7,22 +6,19 @@ import MoreProducts from "@/components/templates/product/MoreProducts";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/Navbar/Navbar";
 import connectToDb from "@/configs/db";
-import productModel from '/models/Product'
+import productModel from '@/models/Product'
 import {authUser} from "@/utils/checkCookie";
 
 
 const product = async ({params}) => {
 
     const user = await authUser();
-
     await connectToDb()
 
-    // const productId = params.id;
-    const productId = new mongoose.Types.ObjectId(params.id);
+    const productId = params.id;
     const product = await productModel.findOne({_id: productId}).populate("comments");
-    const relatedProducts = await productModel.find({smell: product.smell});
+    const relatedProducts = await productModel.find({name: product.name});
 
-    // console.log("page product ====> " + JSON.parse(JSON.stringify(product)));
 
 
     return (

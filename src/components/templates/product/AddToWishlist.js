@@ -10,9 +10,7 @@ function AddToWishlist({productID}) {
 
     const [user, setUser] = useState(null)
 
-
-    useEffect(async () => {
-
+    useEffect(() => {
         const authUser = async () => {
 
             const res = await fetch("/api/auth/me");
@@ -22,9 +20,7 @@ function AddToWishlist({productID}) {
                 setUser({...data});
             }
         }
-
-        await authUser()
-
+        authUser()
     }, []);
 
 

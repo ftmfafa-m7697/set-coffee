@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
 import styles from "./table.module.css";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
 
 function AddDiscount() {
+
   const router = useRouter();
   const [code, setCode] = useState("");
   const [percent, setPercent] = useState("");
