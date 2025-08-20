@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
-import styles from "./table.module.css";
+
 import { useRouter } from "next/navigation";
-import { showSwal } from "@/utils/helpers";
-import swal from "sweetalert";
+import styles from "./table.module.css";
+
+
 export default function DataTable({ products, title }) {
   const router = useRouter();
 
@@ -32,9 +32,7 @@ export default function DataTable({ products, title }) {
               <tr key={product._id}>
                 <td>{index + 1}</td>
                 <td>{product.name}</td>
-                <td>{product.price.toLocaleString()
-
-}</td>
+                <td>{product.price.toLocaleString("fa")}</td>
                 <td>{product.score}</td>
 
                 <td>

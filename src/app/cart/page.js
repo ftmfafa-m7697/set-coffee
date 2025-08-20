@@ -20,7 +20,7 @@ const page = () => {
         <Table />
       </main>
 
-      {/* <div class={styles.cart_empty} data-aos="fade-up">
+      {/* <div className={styles.cart_empty} data-aos="fade-up">
                 <TbShoppingCartX />
                 <p>سبد خرید شما در حال حاضر خالی است. </p>
                 <span>قبل از تسویه حساب، باید چند محصول را به سبد خرید خود اضافه کنید.</span>

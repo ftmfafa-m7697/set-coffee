@@ -12,13 +12,13 @@ import ProductModel from "@/models/Product";
 export default async function Home() {
     await connectToDb()
     const user = await authUser();
-    const products = await ProductModel.find({}).lean();
+    const latestProducts = await ProductModel.find({}).sort({_id:-1}).limit(8)
 
     return (
         <div>
             <Navbar isLogin={!!user}/>
             <Banner/>
-            <Latest products={JSON.parse(JSON.stringify(products))} />
+            <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
             <Promote/>
             <Article/>
             <Footer/>

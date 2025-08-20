@@ -63,7 +63,7 @@ const Card = ({price, score, name, productID}) => {
                             <FaRegStar key={index}/>
                         ))}
                     </div>
-                    <span>{price.toLocaleString("fa/IR")} تومان</span>
+                    <span>{price.toLocaleString()} تومان</span>
                 </div>
                 <button onClick={removeProduct} className={styles.delete_btn}>
                     حذف محصول{" "}
