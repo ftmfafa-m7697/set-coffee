@@ -1,15 +1,24 @@
 import connectToDB from "@/configs/db";
 import TicketModel from "@/models/Ticket";
-import {authUser} from "@/utils/serverHelpers";
+import { authUser } from "@/utils/serverHelpers";
 
 export async function POST(req) {
+
     try {
         await connectToDB();
         const reqBody = await req.json();
-        const {title, body, department,
-            subDepartment, priority, ticketID} = reqBody;
-
+        const { title, body, department, subDepartment, priority, ticketID } =
+            reqBody;
         const user = await authUser();
+
+        await TicketModel.findOneAndUpdate(
+            { _id: ticketID },
+            {
+                $set: {
+                    hasAnswer: true,
+                },
+            }
+        );
 
         await TicketModel.create({
             title,
@@ -18,16 +27,16 @@ export async function POST(req) {
             subDepartment,
             priority,
             user: user._id,
-            hasAnswer: true,
+            hasAnswer: false,
             isAnswer: true,
             mainTicket: ticketID,
         });
 
         return Response.json(
-            {message: "Answer saved successfully :))"},
-            {status: 201}
+            { message: "Answer saved successfully :))" },
+            { status: 201 }
         );
     } catch (err) {
-        return Response.json({message: err}, {status: 500});
+        return Response.json({ message: err }, { status: 500 });
     }
 }

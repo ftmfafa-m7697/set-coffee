@@ -63,14 +63,15 @@ export async function POST(req) {
             maxAge: 60 * 60 * 24 * 7, // 7 روز
         });
 
+        const headers = new Header()
+        headers.append("Set-Cookie", `token=${accessToken};path=/;httpOnly=true;`);
+        headers.append("Set-Cookie", `token=${refreshToken};path=/;httpOnly=true;`);
 
         return Response.json(
             {message: "User logged in successfully :))"},
             {
                 status: 200,
-                headers: {
-                    "Set-Cookie": `token=${accessToken};path=/;httpOnly=true;`,
-                },
+                headers,
             }
         )
     } catch (err) {

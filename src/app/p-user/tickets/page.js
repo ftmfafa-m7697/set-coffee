@@ -9,14 +9,13 @@ const page = async () => {
     await connectToDB();
     const user = await authUser();
     const tickets = await TicketModel.find({user: user._id})
-        .populate("department", "title")
-        .sort({id: -1});
+        .populate("department", "title").sort({_id: -1});
+
 
     return (
         <UserPanelLayout>
-            <Tickets tickets={JSON.parse(JSON.stringify(tickets))}/>
-        </UserPanelLayout>
-    );
-};
-
+            <Tickets tickets={JSON.parse(JSON.stringify(tickets))} />
+        < /UserPanelLayout>
+    )
+}
 export default page;

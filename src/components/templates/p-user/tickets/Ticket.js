@@ -18,9 +18,7 @@ const Ticket = ({_id, title, createdAt, department, hasAnswer}) => {
                 {/* answer */}
             </div>
         </Link>
-    );
 
-
-};
-
+    )
+}
 export default Ticket;

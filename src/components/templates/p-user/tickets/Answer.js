@@ -11,7 +11,7 @@ const Answer = ({type, ticket}) => {
                 <div>
                     <div>
                         <p>{ticket.user.name}</p>
-                        <span>{type}</span>
+                        <span>{type.user ? "کاربر" : "مدیر"}</span>
                     </div>
                     <img src="/images/shahin.jpg" alt=""/>
                 </div>

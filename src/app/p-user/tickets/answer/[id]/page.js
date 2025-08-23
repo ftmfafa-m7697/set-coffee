@@ -1,9 +1,10 @@
+import connectToDB from "@/configs/db";
+import TicketModel from "@/models/Ticket";
 import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/answerTicket.module.css";
 import Link from "next/link";
 import Answer from "@/components/templates/p-user/tickets/Answer";
-import connectToDB from "@/configs/db";
-import TicketModel from "@/models/Ticket";
+
 
 const page = async ({params}) => {
 
@@ -28,7 +29,7 @@ const page = async ({params}) => {
                             <p>هنوز پاسخی دریافت نکردید</p>
                         </div>
                     ):(
-                        <Answer type="admin" />
+                        <Answer ticket={...ticket} type="admin" />
                     )}
                 </div>
             </main>
