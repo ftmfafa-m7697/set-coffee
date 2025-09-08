@@ -15,7 +15,7 @@ const product = async ({params}) => {
     const user = await authUser();
     await connectToDb()
 
-    const productId = params.id;
+    const productId =await params.id;
     const product = await productModel.findOne({_id: productId}).populate("comments");
     const relatedProducts = await productModel.find({name: product.name});
 

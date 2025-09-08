@@ -13,7 +13,7 @@ const page = async ({params}) => {
     const ticket = await TicketModel.findOne({_id: ticketID}).populate("user", "name").lean();
     const answerTicket = await TicketModel.findOne({mainTicket: ticket._id});
 
-    
+
     return (
         <UserPanelLayout>
             <main className={styles.container}>
@@ -23,13 +23,13 @@ const page = async ({params}) => {
                 </h1>
 
                 <div>
-                    <Answer ticket={...ticket} type="user" />
+                    <Answer ticket={...ticket} type="user"/>
                     {!answerTicket ? (
                         <div className={styles.empty}>
                             <p>هنوز پاسخی دریافت نکردید</p>
                         </div>
-                    ):(
-                        <Answer ticket={...ticket} type="admin" />
+                    ) : (
+                        <Answer ticket={...ticket} type="admin"/>
                     )}
                 </div>
             </main>

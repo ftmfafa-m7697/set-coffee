@@ -14,7 +14,7 @@ export async function DELETE(req, { params }) {
             );
         }
 
-        const productID = params.id;
+        const productID =await params.id;
 
         await wishlistModel.findOneAndDelete({
             user: user._id,

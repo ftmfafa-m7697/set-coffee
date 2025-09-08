@@ -4,7 +4,7 @@ import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constants";
 
 export async function POST(req) {
-  connectToDB();
+  await connectToDB();
   const body = await req.json();
   const { name, phone, email, password } = body;
 
