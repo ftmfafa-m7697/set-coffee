@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import UserModel from "@/models/User";
 
 export async function GET(req) {
-  connectToDB();
+  await connectToDB();
   const token = cookies().get("token");
   let user = null;
 

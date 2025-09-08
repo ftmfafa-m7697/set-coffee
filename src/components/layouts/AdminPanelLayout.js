@@ -2,11 +2,14 @@ import styles from "./adminPanelLayout.module.css";
 import Sidebar from "@/components/modules/p-admin/Sidebar";
 import Topbar from "@/components/modules/p-admin/Topbor";
 import {redirect} from "next/navigation";
+import UserModel from "@/models/User"
 import {authUser} from "@/utils/checkCookie";
 
 const AdminPanelLayout = async ({children}) => {
 
-    const user = await authUser();
+    const userLogin = authUser();
+    const user = await UserModel.findOne({ username: userLogin._id }).lean();
+
     if (user) {
         if (user.role !== "ADMIN") {
             return redirect("/login-register");
@@ -19,9 +22,9 @@ const AdminPanelLayout = async ({children}) => {
     return (
         <div className={styles.layout}>
             <section className={styles.section}>
-                <Sidebar/>
+                <Sidebar user={JSON.parse(JSON.stringify(user))}/>
                 <div className={styles.contents}>
-                    <Topbar/>
+                    <Topbar user={JSON.parse(JSON.stringify(user))}/>
                     {children}
                 </div>
             </section>

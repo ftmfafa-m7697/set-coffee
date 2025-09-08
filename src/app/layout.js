@@ -1,10 +1,8 @@
-import './globals.css'
+import './global.css'
 import {Inter} from 'next/font/google'
 import AOSInit from "@/utils/aos";
 import ScrollTOTop from "@/utils/ScrollToTop"
 import connectToDb from "@/configs/db";
-
-
 
 
 const inter = Inter({subsets: ['latin']})

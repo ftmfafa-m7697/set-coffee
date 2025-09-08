@@ -1,4 +1,4 @@
-import wishlistModel from "/models/Wishlist";
+import wishlistModel from "@/models/Wishlist";
 import connectToDb from "@/configs/db";
 
 

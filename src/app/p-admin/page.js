@@ -1,4 +1,3 @@
-import React from "react";
 import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import styles from "@/styles/p-admin/index.module.css";
 import Box from "@/components/modules/infoBox/InfoBox";

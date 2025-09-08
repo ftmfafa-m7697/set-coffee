@@ -6,7 +6,7 @@ import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
 
 
-const Topbar = () => {
+const Topbar = ({user}) => {
 
 
   const [showNotifications, setShowNotifications] = useState(false);
@@ -20,10 +20,10 @@ const Topbar = () => {
       <div className={styles.topbar}>
         <div className={styles.profile}>
           <div>
-            <p>شاهین مشکل گشا</p>
-            <span>ادمین</span>
+            <p>{user.name}</p>
+            <span>کاربر</span>
           </div>
-          <img src="/images/shahin.jpg" alt="" />
+          {/*<img src="/images/shahin.jpg" alt="" />*/}
         </div>
         <section>
           <div className={styles.searchBox}>
